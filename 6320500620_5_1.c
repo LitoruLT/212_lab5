@@ -29,26 +29,31 @@ void main()
             save[k-1]=save[k-1]-save[k];
             save[k]=0;
             k=k-1;
+            printf("k=%d , -save[k]=%d\n",k,save[k]);
         }
         else if(token[0]=='*')
         {
             save[k-1]=save[k-1]*save[k];
             save[k]=0;
             k=k-1;
+            printf("k=%d , *save[k]=%d\n",k,save[k]);
         }
         else if(token[0]=='+')
         {
             save[k-1]=save[k-1]+save[k];
             save[k]=0;
             k=k-1;
+            printf("k=%d , +save[k]=%d\n",k,save[k]);
         }
         else
         {
-            printf("atoi = %d",atoi(token));
+            printf("atoi = %d ",atoi(token));
             save[k]=atoi(token);
+            printf("k=%d , save[k]=%d\n",k,save[k]);
             k++;
         }
-        printf("k=%d , save[k]=%d\n",k,save[k]);
+        printf("now k=%d , save[k]=%d\n",k-1,save[k-1]);
+
 
         token = strtok(NULL, " ");
     }
