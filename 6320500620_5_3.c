@@ -27,18 +27,15 @@ unsigned long long checkugly(unsigned long long num)
 
 void main()
 {
-    unsigned long long n,i=2,j,k,count=2;
+    unsigned long long n,i=2,j,k,count=1;
     scanf("%llu",&n);
 
     while(count<n)
     {
-        printf("count=%llu\n",count);
-        printf("i=%llu\n",i);
         count=count+checkugly(i);
         i++;
-
     }
-    printf("%llu",i);
+    printf("%llu",i-1);
 
 
 }
