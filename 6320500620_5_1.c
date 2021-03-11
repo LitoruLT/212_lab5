@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void main()
 {
-    int n,i,ans;
+    int n,i,ans=0;
     scanf("%d",&n);
     int high=n*n*n*n*n;
     unsigned char term[high];
@@ -16,18 +17,44 @@ void main()
     scanf("%[^\n]",&term);
     int k=0;
     i=0;
-    while(term[i]!='\0')
+    int save[9];
+
+    char *token = strtok(term, " ");
+
+    while( token != '\0' )
     {
-        char *token = strtok(term, " ");
-
-        while( token != '\0' )
+        printf("%s\n",token);
+        if(token[0]=='-')
         {
-            printf(" %s\n",token);
-            token = strtok(NULL, " ");
+            save[k-1]=save[k-1]-save[k];
+            save[k]=0;
+            k=k-1;
         }
+        else if(token[0]=='*')
+        {
+            save[k-1]=save[k-1]*save[k];
+            save[k]=0;
+            k=k-1;
+        }
+        else if(token[0]=='+')
+        {
+            save[k-1]=save[k-1]+save[k];
+            save[k]=0;
+            k=k-1;
+        }
+        else
+        {
+            printf("atoi = %d",atoi(token));
+            save[k]=atoi(token);
+            k++;
+        }
+        printf("k=%d , save[k]=%d\n",k,save[k]);
 
+        token = strtok(NULL, " ");
     }
 
 
-    printf("%s",term);
+
+
+    printf("%d",ans);
 }
