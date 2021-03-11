@@ -22,16 +22,20 @@ void main()
     int now=0,max=0,temp=0;
     while( i<N || k<N )
     {
-        for(i=0+prow ; i<B+prow ; i++)
+        if(pcol+B<=N  &&  prow+B<=N)
         {
-            for(k=0+pcol ; k<B+pcol ; k++)
+            for(i=0+prow ; i<B+prow ; i++)
             {
-                printf(" A+ %d\n",A[i][k]);
-                now=now+A[i][k];
-            }
+                for(k=0+pcol ; k<B+pcol ; k++)
+                {
+                    //printf(" A+ %d\n",A[i][k]);
+                    now=now+A[i][k];
+                }
 
+            }
         }
-        printf("now = %d\n",now);
+
+        //printf("now = %d\n",now);
 
         if(temp==0 || max<now)
             max=now;
@@ -45,7 +49,8 @@ void main()
 
     }
 
-    printf("max= %d\n",max);
+    printf("%d",max);
+    //printf("max= %d\n",max);
 
 
 
