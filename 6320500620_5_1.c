@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include <string.h>
 
 void main()
 {
@@ -8,29 +9,22 @@ void main()
     unsigned char term[high];
 
     int stack[n];
+    for(i=0;i<n;i++)
+        stack[n]=0;
 
     fflush(stdin);
     scanf("%[^\n]",&term);
     int k=0;
+    i=0;
     while(term[i]!='\0')
     {
-        if(term[i]=='-')
-        {
+        char *token = strtok(term, " ");
 
-        }
-        else if(term[i]=='+')
+        while( token != '\0' )
         {
-
+            printf(" %s\n",token);
+            token = strtok(NULL, " ");
         }
-        else if(term[i]=='*')
-        {
-
-        }
-        else
-        {
-            k++;
-        }
-        i++;
 
     }
 
